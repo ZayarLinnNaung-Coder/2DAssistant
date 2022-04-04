@@ -1,0 +1,21 @@
+<header>
+  <div class="header-wrapper">
+    <div class="search">
+      <div class="search-icon">
+        <i-feather *ngIf="!isSearchMode && !hasBackMode" name="search" (click)="changeSearchMode(true)"></i-feather>
+        <i-feather *ngIf="isSearchMode" name="x" (click)="changeSearchMode(false)"></i-feather>
+        <i-feather name="arrow-left" *ngIf="hasBackMode" (click)="goToBack()"></i-feather>
+      </div>
+      <div class="search-div">
+        <input type="text" class="search-input box-shadow">
+        <button class="search-btn box-shadow"><i-feather name="search"></i-feather></button>
+      </div>
+    </div>
+    <div class="user-info">
+      <p class="intro-user">Welcome, Zayar</p>
+      <div class="user-icon box-shadow">
+        <i-feather name="user"></i-feather>
+      </div>
+    </div>
+  </div>
+</header>

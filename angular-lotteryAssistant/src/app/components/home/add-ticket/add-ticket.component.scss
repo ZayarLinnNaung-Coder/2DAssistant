@@ -1,0 +1,104 @@
+section.add-ticket{
+  width: 100%;
+  height: 80vh;
+  .main-wrapper{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--light);
+    padding: 0 12px;
+    .gambler-ticket-form{
+      .formGroup{
+        padding-top: 25px;
+        &.gambler-name-wrapper, &.gambler-address-wrapper{
+          input{
+            width: 100%;
+          }
+        }
+        &.ticket-input-wrapper{
+          .title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            button{
+              width: 35px;
+              height: 35px;
+              border-radius: 50%;
+              border: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: var(--soft-light);
+              i-feather{
+                width: 24px;
+                height: 24px;
+              }
+            }
+            margin-bottom: 10px;
+          }
+          .ticket{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            .number{
+              width: 40%;
+            }
+            .options{
+              width: 18%;
+            }
+            .amount{
+              width: 40%;
+            }
+          }
+          .extra-option{
+            margin-bottom: 5px;
+            label{
+              margin-right: 5px;
+            }
+            input{
+              margin-right: 15px;
+            }
+          }
+        }
+      }
+      .submit-btn{
+        float: right;
+      }
+    }
+
+  }
+}
+
+.confirmationDialog{
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  background-color: var(--soft-light);
+  .data{
+    min-height: 10vh;
+    max-height: 60vh;
+    .list{
+      .f-small{
+        height: 35px;
+      }
+    }
+  }
+  .confirm{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    button{
+      &.cancel-btn{
+        background-color: var(--danger);
+        color: var(--light);
+      }
+      &.submit-btn{
+        background-color: var(--soft-light);
+      }
+    }
+  }
+
+}

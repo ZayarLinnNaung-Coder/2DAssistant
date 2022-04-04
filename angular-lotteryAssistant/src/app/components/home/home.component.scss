@@ -1,0 +1,56 @@
+section.main{
+  width: 100%;
+  height: 80vh;
+  .main-wrapper{
+    padding: 0 12px;
+    width: 100%;
+    height: 100%;
+    .toolbar{
+      height: 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .time-filters{
+        display: flex;
+        .time{
+          padding: 10px 15px;
+          &.active{
+            background-color: var(--soft-light);
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+          }
+        }
+      }
+      .other{
+        display: flex;
+        align-items: center;
+        .option{
+          width: 35px;
+          height: 35px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .add-customer{
+          border-radius: 50%;
+          background-color: var(--soft-light);
+          margin-right: 5px;
+        }
+      }
+    }
+    .data-wrapper{
+      height: 90%;
+      overflow-y: auto;
+      .data{
+        margin-top: 5px;
+        width: 100%;
+        padding: 15px;
+        background-color: var(--soft-light);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        .nameAndDate{
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}

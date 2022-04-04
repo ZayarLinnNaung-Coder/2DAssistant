@@ -1,0 +1,25 @@
+<app-header [hasBackMode]="true"></app-header>
+<section class="viewUserData">
+  <div class="main-wrapper">
+    <div class="info-title">
+      <p class="f-medium">{{targetCustomer.username}}</p>
+      <p class="f-small f-bold">{{targetCustomer.totalAmount}} ကျပ်</p>
+    </div>
+    <div class="info-time">
+      <i-feather name="clock"></i-feather>
+      <span class="f-small">{{targetCustomer.date | date:'d-M-yyyy, h:m:s a'}}</span>
+    </div>
+    <div class="info-address">
+      <i-feather name="map"></i-feather>
+      <span class="f-small">{{targetCustomer.address}}</span>
+    </div>
+    <div class="info-other">
+      <div class="f-small tickets" *ngFor="let ticket of targetCustomer.tickets">
+        <span class="f-small">{{ticket.numb}}</span> &nbsp;&nbsp;
+        <span class="f-small">{{luckyTicketOptions[ticket.option]}}</span> &nbsp;&nbsp;
+        <span class="f-small">{{ticket.amount}}</span>
+      </div>
+    </div>
+<!--    <button (click)="takeScreenshot()">Screenshot</button>-->
+  </div>
+</section>

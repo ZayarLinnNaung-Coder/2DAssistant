@@ -1,0 +1,37 @@
+<app-header></app-header>
+<section class="main">
+  <div class="main-wrapper">
+    <div class="toolbar">
+      <div class="time-filters">
+        <div class="time active">
+          <p class="f-small">ALL</p>
+        </div>
+        <div class="time">
+          <p class="f-small">AM</p>
+        </div>
+        <div class="time">
+          <p class="f-small">PM</p>
+        </div>
+      </div>
+      <div class="other">
+        <div class="add-customer option box-shadow" routerLink="/home/add-ticket">
+          <i-feather name="plus"></i-feather>
+        </div>
+        <div class="list option" routerLink="/home/show-list">
+          <i-feather name="file-text"></i-feather>
+        </div>
+      </div>
+    </div>
+    <div class="data-wrapper">
+      <div class="data" *ngFor="let customer of todayCustomers" (click)="viewUserData(customer.customerId)">
+        <div class="nameAndDate">
+          <p class="f-small">{{customer.username}}</p>
+          <p class="f-small">{{customer.date | date:'d-M-y, h:mm a'}}</p>
+        </div>
+        <div class="amount">
+          <p class="f-small">{{customer.totalAmount}} ကျပ်</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

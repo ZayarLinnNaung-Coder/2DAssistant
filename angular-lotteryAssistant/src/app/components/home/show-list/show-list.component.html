@@ -1,0 +1,62 @@
+<app-header [hasBackMode]="true"></app-header>
+<section class="show-list">
+  <div class="main-wrapper">
+    <div class="toolbar">
+      <div class="time-filters">
+        <div class="time active" (click)="filterTime('all', $event)">
+          <p class="f-small">ALL</p>
+        </div>
+        <div class="time"(click)="filterTime('am', $event)">
+          <p class="f-small">AM</p>
+        </div>
+        <div class="time"(click)="filterTime('pm', $event)">
+          <p class="f-small">PM</p>
+        </div>
+      </div>
+      <div class="search-option">
+        <input type="text" class="form-control">
+        <button><i-feather name="search"></i-feather></button>
+      </div>
+    </div>
+    <div class="list-wrapper">
+      <div class="show-money">
+        <div class="sellingMoney">
+          <p class="f-small">ရောင်းရငွေ</p>
+          <p class="f-small">၁၉၈,၀၀၀ ကျပ်</p>
+        </div>
+        <div class="luckyMoney">
+          <p class="f-small">ပေါက်သီး</p>
+          <p class="f-small">၂,၅၀၀ ကျပ်</p>
+        </div>
+      </div>
+      <div *ngIf="showALL || showOnlyAM" class="am">
+        <div class="title">
+          <p class="f-small">4/1/2022 (မနက်) စာရင်း</p>
+          <i-feather *ngIf="!showAmLuckyPersonList" name="chevron-down" (click)="showAmLuckyPersonList = true"></i-feather>
+          <i-feather *ngIf="showAmLuckyPersonList" name="chevron-up" (click)="showAmLuckyPersonList = false"></i-feather>
+        </div>
+        <div *ngIf="showAmLuckyPersonList" class="lucky-person-list">
+          <div class="lucky-person box-shadow">
+            <span class="f-small">မောင်မောင်</span>
+            <span class="f-small">၉၃</span>
+            <span class="f-small">၅၀၀ ကျပ်</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="showALL || showOnlyPM" class="pm">
+        <div class="title">
+          <p class="f-small">4/1/2022 (ညနေ) စာရင်း</p>
+          <i-feather *ngIf="!showPmLuckyPersonList" name="chevron-down" (click)="showPmLuckyPersonList = true"></i-feather>
+          <i-feather *ngIf="showPmLuckyPersonList" name="chevron-up" (click)="showPmLuckyPersonList = false"></i-feather>
+        </div>
+        <div *ngIf="showPmLuckyPersonList" class="lucky-person-list">
+          <div class="lucky-person box-shadow">
+            <span class="f-small">မောင်မောင်</span>
+            <span class="f-small">၉၃</span>
+            <span class="f-small">၅၀၀ ကျပ်</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

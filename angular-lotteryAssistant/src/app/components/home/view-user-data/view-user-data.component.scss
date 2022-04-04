@@ -1,0 +1,26 @@
+section.viewUserData{
+  width: 100%;
+  height: 80vh;
+  .main-wrapper{
+    padding: 0 12px;
+    .info-title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .info-time, .info-address{
+      display: flex;
+      align-items: center;
+      i-feather{
+        width: 18px;
+        height: 18px;
+      }
+      span{
+        margin-left: 10px;
+      }
+    }
+    .info-address{
+      margin-bottom: 25px;
+    }
+  }
+}

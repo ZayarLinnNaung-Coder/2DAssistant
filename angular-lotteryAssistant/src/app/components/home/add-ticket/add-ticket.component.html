@@ -1,0 +1,57 @@
+<app-header [hasBackMode]="true"></app-header>
+<section class="add-ticket">
+  <div class="main-wrapper">
+    <form class="gambler-ticket-form" [formGroup]="ticketForm">
+      <div class="gambler-name-wrapper formGroup">
+        <p class="f-small">၀ယ်ယူသူအမည်</p>
+        <input type="text" class="form-control" formControlName="username">
+      </div>
+      <div class="gambler-address-wrapper formGroup">
+        <p class="f-small">လိပ်စာ</p>
+        <input type="text" class="form-control" formControlName="address">
+      </div>
+      <div class="ticket-input-wrapper formGroup">
+        <div class="title">
+          <p class="f-small">ထိုးကွက်</p>
+          <button class="box-shadow" (click)="addTicketFormGroup()"><i-feather name="plus"></i-feather></button>
+        </div>
+        <div formArrayName="tickets">
+          <div *ngFor="let ticket of tickets.controls; let i = index">
+            <div class="ticket" [formGroupName]="i">
+              <input type="number" id="numbFormControl" [readOnly]="disableNumbInput" placeholder="ဂဏန်း" formControlName="numb" class="form-control number">
+              <select formControlName="option" #optionFormControl class="form-control options" (change)="onOptionChange($event.target, i)">
+                <option *ngFor="let option of luckyTicketOptions; let i = index" [value]="i" class="f-small">{{option}}</option>
+              </select>
+              <input formControlName="amount" type="number" class="form-control amount" placeholder="ပမာဏ">
+            </div>
+            <div class="combinationalNumberOption extra-option" *ngIf="+optionFormControl.value == 2">
+              <label for="sameNumberCheckBox" class="f-small">အပူးပါ</label><input id="sameNumberCheckBox" type="checkbox">
+            </div>
+            <div class="roundingNumberOption extra-option"  *ngIf="+optionFormControl.value == 3">
+              <label for="noSameNumberRadio" class="f-small">၁၈ကွက်(အပူးမပါ)</label><input type="radio" id="noSameNumberRadio" checked name="roundingNumber">
+              <label for="oneSameNumberRadio" class="f-small">၁၉ကွက်</label><input type="radio" id="oneSameNumberRadio"  name="roundingNumber">
+              <label for="twoSameNumberRadio" class="f-small">၂၀ကွက်</label><input type="radio" id="twoSameNumberRadio" checked name="roundingNumber">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" [disabled]="ticketForm.invalid" (click)="showConfirmationDialog(true)" class="box-shadow submit-btn btn btn-primary">ရပြီ</button>
+    </form>
+  </div>
+</section>
+
+<div class="confirmationDialog" *ngIf="showConfirmation">
+  <div class="data">
+    <p class="f-medium">ကျသင့်ငွေ - {{totalAmt}} ကျပ်</p>
+    <div class="list">
+      <p class="f-small" *ngFor="let ticket of luckyTickets">
+        {{ticket.numb}} {{luckyTicketOptions[ticket.option]}} {{ticket.amount}} ({{getTicketExtraOption(ticket.option, ticket.extraOption)}})
+      </p>
+    </div>
+  </div>
+  <div class="confirm">
+    <button class="cancel-btn btn" (click)="showConfirmationDialog(false)">ပယ်ဖျက်မည်</button>
+    <button class="confirm-btn btn box-shadow" (click)="onSubmitTicketForm()">အတည်ပြုမည်</button>
+  </div>
+</div>
+
